@@ -1,8 +1,14 @@
 const adicionarTarefa = document.getElementById('btnAddTarefa');
-adicionarTarefa.addEventListener('click', cirarTarefa);
+adicionarTarefa.addEventListener('click', criarTarefa);
 
+const btnAlterar = document.getElementsByClassName('btn_Alterar');
+for(let i = 0; i < btnAlterar.length; i++){
+    btnAlterar[i].addEventListener('click', ()=>{
+        alterarTarefa(listaTarefa.children[i]);
+    });
+}
 
-function cirarTarefa(){
+function criarTarefa(){
     const novaTarefaInput = document.getElementById('novaTarefaInput');
     const listaTarefa = document.getElementById('listaTarefa');
     const novaTarefaTexto = novaTarefaInput.value.trim();
@@ -14,7 +20,7 @@ function cirarTarefa(){
 
     const novaTarefaItem = document.createElement('li');
     novaTarefaItem.classList.add('lista_Itens')
-    novaTarefaItem.innerHTML = `${novaTarefaTexto} <button class="btn_Excluir" id="btnDeletarTarefa"> Excluir </button>`;
+    novaTarefaItem.innerHTML = `${novaTarefaTexto} <button class="btn_Excluir" id="btnDeletarTarefa"> Excluir </button> <button class="btn_Alterar" id="btnAlterarTarefa"> Alterar </button>`;
     listaTarefa.appendChild(novaTarefaItem);
 
     limparInput();
@@ -24,6 +30,10 @@ function cirarTarefa(){
         deletarTarefa(novaTarefaItem);
     });
 
+    const btnAlterar = novaTarefaItem.querySelector('.btn_Alterar');
+    btnAlterar.addEventListener('click', () =>{
+        alterarTarefa(novaTarefaItem);
+    })
 };
 
 function limparInput(){
@@ -44,6 +54,38 @@ function deletarTarefa(li){
     };
 };
 
-// function atualizarLista(){
+function alterarTarefa(li){
+    const textoLi = li.firstChild.textContent;
+    const novoTextoInput = document.createElement('input');
+    novoTextoInput.value = textoLi;
+    li.replaceChild(novoTextoInput, li.firstChild);
 
-// }
+    const btnConfirmar = document.createElement('button');
+    btnConfirmar.innerHTML = 'Confirmar';
+    li.appendChild(btnConfirmar);
+
+    const btnAlterarNovo = document.createElement('button');
+    btnAlterarNovo.innerHTML = 'Alterar';
+    btnAlterarNovo.classList.add('btn_Alterar');
+    li.replaceChild(btnAlterarNovo, li.querySelector('.btn_Alterar'));
+
+    btnConfirmar.addEventListener('click', () => {
+        const novoTexto = novoTextoInput.value.trim();
+        if(novoTexto != ''){
+            li.removeChild(novoTextoInput);
+            li.removeChild(btnConfirmar);
+            li.innerHTML = `${novoTexto} <button class="btn_Excluir" id="btnDeletarTarefa">Excluir</button> <button class="btn_Alterar" id="btnAlterarTarefa">Alterar</button>`;
+            
+            const btnDeletar = li.querySelector('.btn_Excluir');
+            btnDeletar.addEventListener('click', () =>{
+                deletarTarefa(li);
+            });
+            const btnAlterar = li.querySelector('.btn_Alterar');
+            btnAlterar.addEventListener('click', () => {
+                alterarTarefa(li);
+            });
+        }else{
+            alert('Digite algo para ser adicionado a lista de tarefas.');
+        };
+    });
+};
