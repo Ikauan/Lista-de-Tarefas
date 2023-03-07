@@ -1,0 +1,75 @@
+:root{
+    --global-primaty-color: #e178ff;
+    --global-secundary-color: #c65aef;
+    --global-tertiary-color: #911fd0;
+}
+
+body{
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-bottom: 2%;
+    margin-right: 30%;
+    width: 40%;
+    height: 80%;
+    position: relative; 
+    font-family:  Helvetica;
+    background: var(--global-primaty-color);
+}
+
+
+.titulo{
+    color: black;
+    text-align: center;
+    text-shadow: 1px 1px var(--global-tertiary-color);
+    font-size: 25px;
+}
+
+.primeiro-texto{
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    padding: 3px;
+}
+
+.lista{
+    border: 2px solid black;
+    box-shadow: 10px 10px var(--global-tertiary-color);
+    border-radius: 2px;
+    padding: 5%;
+}
+
+input{
+    border-width: 2px;
+    border-radius: 3%;
+    border-color: var(--global-secundary-color);
+    box-shadow: 2px 2px var(--global-tertiary-color);
+    align-items: center;
+}
+
+/* button{
+    margin: 3px;
+    padding: 3px;
+    text-align: center;
+    height: 25px;
+    width: 50px;
+    border-color: var(--global-secundary-color);
+    border-radius: 5px;
+    box-shadow: 3px 3px var(--global-tertiary-color);
+    
+} */
+
+button:hover{
+    background-color: var(--global-tertiary-color);
+}
+
+ul, li{
+    list-style: none;
+    margin: 1px;
+}
+
+.lista_Itens{
+    margin: 5%;
+    padding: 3px;
+    /* border-bottom: 2px solid black; */
+    box-shadow: px var(--global-tertiary-color);
+}

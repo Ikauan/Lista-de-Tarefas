@@ -61,7 +61,7 @@ function alterarTarefa(li){
     li.replaceChild(novoTextoInput, li.firstChild);
 
     const btnConfirmar = document.createElement('button');
-    btnConfirmar.innerHTML = 'Confirmar';
+    btnConfirmar.innerHTML = '✔️';
     li.appendChild(btnConfirmar);
 
     const btnAlterarNovo = document.createElement('button');
