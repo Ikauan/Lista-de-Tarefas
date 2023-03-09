@@ -58,10 +58,12 @@ function alterarTarefa(li){
     const textoLi = li.firstChild.textContent;
     const novoTextoInput = document.createElement('input');
     novoTextoInput.value = textoLi;
+    novoTextoInput.classList.add('input_Novo');
     li.replaceChild(novoTextoInput, li.firstChild);
 
     const btnConfirmar = document.createElement('button');
-    btnConfirmar.innerHTML = '✔️';
+    btnConfirmar.innerHTML = 'Confirmar';
+    btnConfirmar.classList.add('btn_Confirmar')
     li.appendChild(btnConfirmar);
 
     const btnAlterarNovo = document.createElement('button');

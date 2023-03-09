@@ -6,10 +6,10 @@
 
 body{
     margin-top: 10%;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-bottom: 2%;
     margin-right: 30%;
-    width: 40%;
+    width: 50%;
     height: 80%;
     position: relative; 
     font-family:  Helvetica;
@@ -38,28 +38,34 @@ body{
     padding: 5%;
 }
 
-input{
+.input{
+    width: max-content;
     border-width: 2px;
     border-radius: 3%;
     border-color: var(--global-secundary-color);
     box-shadow: 2px 2px var(--global-tertiary-color);
+    margin-left: 12%;
     align-items: center;
 }
 
-/* button{
-    margin: 3px;
-    padding: 3px;
-    text-align: center;
-    height: 25px;
-    width: 50px;
+.input_Novo{
+    height: max-content;
+    border-width: 2px;
+    border-radius: 3%;
     border-color: var(--global-secundary-color);
-    border-radius: 5px;
-    box-shadow: 3px 3px var(--global-tertiary-color);
-    
-} */
+    box-shadow: 2px 2px var(--global-tertiary-color);
+}
 
-button:hover{
+.btn_Tarefa, .btn_Excluir, .btn_Confirmar, .btn_Alterar{
+    border: 1px solid var(--global-tertiary-color);
+    background-color: var(--global-secundary-color);
+    width: auto;
+    margin-left: 4%;
+}
+
+.btn_Alterar:hover, .btn_Excluir:hover, .btn_Confirmar:hover, .btn_Tarefa:hover{
     background-color: var(--global-tertiary-color);
+    border: 1px solid black;
 }
 
 ul, li{
@@ -68,7 +74,10 @@ ul, li{
 }
 
 .lista_Itens{
-    margin: 5%;
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+    margin-left: 5%;
     padding: 3px;
     /* border-bottom: 2px solid black; */
     box-shadow: px var(--global-tertiary-color);
